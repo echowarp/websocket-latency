@@ -16,7 +16,7 @@ function generate_tests() {
     for (let i in test_durations) {
         tests.push({
             duration: test_durations[i],
-            type: "sequential",
+            type: "async",
         })
     }
 }
@@ -24,7 +24,7 @@ generate_tests();
 
 
 
-let socket = new WebSocket("ws://localhost:8081");
+let socket = new WebSocket("ws://localhost:8081/ws");
 socket.onopen = function(e) {
   console.log("[open] Connection established");
 
